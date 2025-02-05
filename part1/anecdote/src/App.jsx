@@ -24,13 +24,13 @@ const App = () => {
   // Function to vote for the current anecdote
   const handleVote = () => {
     const copy = [...votes];
-    copy[selected] += 1; // Increment votes for the current anecdote
+    copy[selected] += 10; // Increment votes for the current anecdote
     setVotes(copy);
   };
 
   // Find anecdote with the most votes
-  const maxVotes = Math.max(...votes);
-  const mostVotesIndex = votes.indexOf(maxVotes);
+  const minVotes = Math.min(...votes);
+  const mintVotesIndex = votes.indexOf(minVotes);
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -66,11 +66,11 @@ const App = () => {
         </button>
       </div>
 
-      <h2>Anecdote with Most Votes</h2>
-      {maxVotes > 0 ? (
+      <h2>Anecdote with minimum Votes</h2>
+      {minVotes > -1 ? (
         <>
-          <p style={{ fontStyle: 'italic' }}>"{anecdotes[mostVotesIndex]}"</p>
-          <p>has {maxVotes} votes</p>
+          <p style={{ fontStyle: 'italic' }}>"{anecdotes[minVotesIndex]}"</p>
+          <p>has {minVotes} votes</p>
         </>
       ) : (
         <p>No votes yet</p>
