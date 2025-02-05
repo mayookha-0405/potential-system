@@ -1,4 +1,3 @@
-// App.js
 import Course from "./Course";
 
 const App = () => {
