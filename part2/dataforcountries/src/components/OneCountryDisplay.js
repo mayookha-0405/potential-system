@@ -20,16 +20,19 @@ const OneCountryDisplay = ({result}) => {
 
     return(
       <div>
-        <div>
-            <h1>{result.name.common}</h1>
-            <p>{result.capital[0]}</p>
-            <p>{result.area}</p>
-            <h3>languages:</h3>
-            <ul>
-                {keys.map(keys => <li>{result.languages[keys]}</li>)}
-            </ul>
-            <img src={result.flags.png} alt='flag' height='200' width='250' /> 
-        </div>
+        <h1>{result.name.common}</h1>
+    <p>{result.capital[0]}</p>
+    <p>{result.area}</p>
+    <h3>Languages:</h3>
+    <ul>
+      {keys.map((key) => (
+        <li key={key}>{result.languages[key]}</li>
+      ))}
+    </ul>
+    <div style={{ display: "flex", gap: "20px" }}>
+      <img src={result.flags.png} alt="flag" height="200" width="250" />
+      <img src={result.flags.png} alt="flag" height="200" width="250" />
+    </div>
         <AllWeather result={result}/>
       </div>
     )
